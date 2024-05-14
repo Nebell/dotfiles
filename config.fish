@@ -40,7 +40,7 @@ function fish_prompt
     echo -n "$hostname"
     set_color green
     echo -n " "(prompt_pwd)
-    set_color blue
+    set_color normal
     echo -n (fish_git_prompt)
     set_color white
     echo -n "> "
