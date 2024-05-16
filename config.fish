@@ -28,11 +28,20 @@ set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -g __fish_git_prompt_color_cleanstate $fish_color_normal 
 
 function fish_prompt
+
+    set -l last_status $status
+    # Prompt status only if it's not 0
+    set -l stat
+    if test $last_status -ne 0
+        set stat (set_color red)" [$last_status]"(set_color normal)
+    end
+
     if fish_is_root_user
         set_color red
     else 
         set_color green
     end
+
     echo -n $USER
     set_color normal
     echo -n "@"
@@ -43,7 +52,7 @@ function fish_prompt
     set_color normal
     echo -n (fish_git_prompt)
     set_color white
-    echo -n "> "
+    echo -n "$stat> "
     set_color normal
 end
 
