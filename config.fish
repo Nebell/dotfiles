@@ -28,7 +28,7 @@ set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -g __fish_git_prompt_color_cleanstate $fish_color_normal 
 
 function fish_prompt
-    if test $USER = "root"
+    if fish_is_root_user
         set_color red
     else 
         set_color green
