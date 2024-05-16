@@ -56,4 +56,9 @@ function fish_prompt
     set_color normal
 end
 
+# https://fishshell.com/docs/current/cmds/fish_right_prompt.html
+function fish_right_prompt
+    date '+%H:%M:%S'
+end
+
 set -gx PATH $PATH $HOME/go/bin
