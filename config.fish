@@ -37,17 +37,17 @@ function fish_prompt
     end
 
     if fish_is_root_user
-        set_color red
+        set_color brred
     else 
-        set_color green
+        set_color brgreen
     end
 
     echo -n $USER
     set_color normal
     echo -n "@"
-    set_color yellow
+    set_color bryellow
     echo -n "$hostname"
-    set_color green
+    set_color brgreen
     echo -n " "(prompt_pwd)
     set_color normal
     echo -n (fish_git_prompt)
