@@ -47,8 +47,8 @@ function fish_prompt
     echo -n "@"
     set_color bryellow
     echo -n "$hostname"
-    # set_color -i 3CB371
-    set_color -i 2E8B57
+    set_color -i 3CB371
+    # set_color -i 2E8B57
     echo -n " "(prompt_pwd)
     set_color normal
     echo -n (fish_git_prompt)
