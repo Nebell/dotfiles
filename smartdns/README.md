@@ -21,3 +21,8 @@ server-tls dot.pub  -group china
 domain-set -name china -file /etc/smartdns/china.domains.list
 nameserver /domain-set:china/china
 ```
+
+进而可以对`.cn`域名都做国内分流：
+``` conf
+nameserver /cn/china
+```
