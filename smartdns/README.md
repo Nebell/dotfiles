@@ -26,3 +26,7 @@ nameserver /domain-set:china/china
 ``` conf
 nameserver /cn/china
 ```
+
+# 参考
++ [DNS分流](https://pymumu.github.io/smartdns/config/domain-forwarding/)
++ [域名集合](https://pymumu.github.io/smartdns/config/domain-rule/#_4)
