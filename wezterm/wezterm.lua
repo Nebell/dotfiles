@@ -40,5 +40,15 @@ config.scroll_to_bottom_on_input = true
 config.use_ime = true
 config.xim_im_name = "fcitx"
 
+-- keys
+local act = wezterm.action
+
+config.keys = {
+  { key = 'PageUp', mods = 'SHIFT', action = act.ScrollByPage(-1) },
+  { key = 'PageDown', mods = 'SHIFT', action = act.ScrollByPage(1) },
+  { key = 'PageUp', mods = 'CTRL', action = act.ScrollByLine(-3) },
+  { key = 'PageDown', mods = 'CTRL', action = act.ScrollByLine(3) },
+}
+
 -- and finally, return the configuration to wezterm
 return config
