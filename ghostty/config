@@ -1,0 +1,10 @@
+font-size = 15
+
+# This configuration can be repeated multiple times to specify preferred fallback fonts
+# when the requested codepoint is not available in the primary font.
+font-family = "Hack Nerd Font"
+font-family = "Noto Sans CJK SC"
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-click-to-move = true
