@@ -1,31 +1,28 @@
-set -U fish_greeting
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+function fish_git_support
+    # git support
+    set -g __fish_git_prompt_show_informative_status 1
+    set -g __fish_git_prompt_char_stateseparator ""
+    set -g __fish_git_prompt_hide_untrackedfiles 1
+
+    set -g __fish_git_prompt_color_branch cyan 
+    set -g __fish_git_prompt_showupstream "informative"
+    set -g __fish_git_prompt_char_upstream_ahead "↑"
+    set -g __fish_git_prompt_char_upstream_behind "↓"
+    set -g __fish_git_prompt_char_upstream_prefix ""
+
+    set -g __fish_git_prompt_char_stagedstate "●"
+    set -g __fish_git_prompt_char_dirtystate "+"
+    set -g __fish_git_prompt_char_untrackedfiles "…"
+    set -g __fish_git_prompt_char_conflictedstate "✗"
+    set -g __fish_git_prompt_char_cleanstate ""
+    # set -g __fish_git_prompt_char_cleanstate "✓"
+
+    set -g __fish_git_prompt_color_dirtystate blue
+    set -g __fish_git_prompt_color_stagedstate yellow
+    set -g __fish_git_prompt_color_invalidstate red
+    set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
+    set -g __fish_git_prompt_color_cleanstate $fish_color_normal 
 end
-
-# git support
-set -g __fish_git_prompt_show_informative_status 1
-set -g __fish_git_prompt_char_stateseparator ""
-set -g __fish_git_prompt_hide_untrackedfiles 1
-
-set -g __fish_git_prompt_color_branch cyan 
-set -g __fish_git_prompt_showupstream "informative"
-set -g __fish_git_prompt_char_upstream_ahead "↑"
-set -g __fish_git_prompt_char_upstream_behind "↓"
-set -g __fish_git_prompt_char_upstream_prefix ""
-
-set -g __fish_git_prompt_char_stagedstate "●"
-set -g __fish_git_prompt_char_dirtystate "+"
-set -g __fish_git_prompt_char_untrackedfiles "…"
-set -g __fish_git_prompt_char_conflictedstate "✗"
-set -g __fish_git_prompt_char_cleanstate ""
-# set -g __fish_git_prompt_char_cleanstate "✓"
-
-set -g __fish_git_prompt_color_dirtystate blue
-set -g __fish_git_prompt_color_stagedstate yellow
-set -g __fish_git_prompt_color_invalidstate red
-set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
-set -g __fish_git_prompt_color_cleanstate $fish_color_normal 
 
 function fish_prompt
 
@@ -62,4 +59,21 @@ function fish_right_prompt
     date '+%H:%M:%S'
 end
 
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+
+    fish_git_support
+
+    if command -v any-nix-shell > /dev/null
+        any-nix-shell fish --info-right | source
+    end
+end
+
+set -U fish_greeting
+
+# rust mirrors
+set -x RUSTUP_UPDATE_ROOT https://mirrors.cernet.edu.cn/rustup/rustup
+set -x RUSTUP_DIST_SERVER https://mirrors.cernet.edu.cn/rustup
+
 set -gx PATH $PATH $HOME/go/bin
+
