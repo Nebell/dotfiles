@@ -77,3 +77,6 @@ set -x RUSTUP_DIST_SERVER https://mirrors.cernet.edu.cn/rustup
 
 set -gx PATH $PATH $HOME/go/bin
 
+# FZF tab completion
+# fisher install jethrokuan/fzf
+set -U FZF_COMPLETE 0
